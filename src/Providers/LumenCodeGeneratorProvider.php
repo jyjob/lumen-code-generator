@@ -10,6 +10,7 @@ namespace jyjob\LumenCodeGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use jyjob\LumenCodeGenerator\Console\MakeXBullAdmin;
+use jyjob\LumenCodeGenerator\Console\MakeXBullWechat;
 
 class LumenCodeGeneratorProvider extends ServiceProvider
 {
@@ -33,7 +34,10 @@ class LumenCodeGeneratorProvider extends ServiceProvider
         $this->app->singleton('jyjob.make.xbull.admin', function ($app) {
             return new MakeXBullAdmin($app['files']);
         });
-        $this->commands(['jyjob.make.xbull.admin']);
+        $this->app->singleton('jyjob.make.xbull.wechat', function ($app) {
+            return new MakeXBullWechat($app['files']);
+        });
+        $this->commands(['jyjob.make.xbull.admin', 'jyjob.make.xbull.wechat']);
     }
 
 }

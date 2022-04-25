@@ -243,12 +243,12 @@ class MakeFileObject
         $name_count = count($name_arr);
 
         $path = $this->getMakeFilesPath();
-        if ($name_count > 1) {
-            for ($i = 0; $i < $name_count - 1; $i++) {
+        if ($name_count > 0) {
+            for ($i = 0; $i < $name_count; $i++) {
                 $path .= DIRECTORY_SEPARATOR . ucfirst($name_arr[$i]);
             }
         }
-        $this->setFileName(ucfirst(end($name_arr)));
+        $this->setFileName(ucfirst($this->inputParams->getName()));
 
         if (!$this->files->isDirectory($path)) {
             $this->files->makeDirectory($path, 0755, true);
@@ -265,6 +265,7 @@ class MakeFileObject
             'time' => date('H:i'),
             'space' => $this->getSpaceName(),
         ];
+        var_dump($templateData);
         $renderStub = $this->getRenderStub($templateData, $stub);
         $path .= DIRECTORY_SEPARATOR . $this->getFileName() . $this->getMakeFileType() . '.php';
         // 仅测试用
