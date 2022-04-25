@@ -20,8 +20,7 @@ class MakeXBullWechat extends GeneratorCommand
      * 控制台命令 signature 的名称。
      * @var string
      */
-    // protected $signature = 'make:xbull_wechat {name?} {--namespace=} {--table=} {--name_text=} {--fillable=} {--author=}';
-    protected $signature = 'make:xbull_wechat {name?} {--namespace=Goods} {--table=xb_goods} {--name_text=商品} {--fillable=n} {--author=wlh}';
+    protected $signature = 'make:xbull_wechat {name?} {--namespace=} {--table=} {--name_text=} {--fillable=} {--author=}';
 
     /**
      * 控制台命令说明。

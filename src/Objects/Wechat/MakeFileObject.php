@@ -280,9 +280,9 @@ class MakeFileObject
         $renderStub = $this->getRenderStub($templateData, $stub);
         $path .= DIRECTORY_SEPARATOR . $this->getFileName() . $this->getMakeFileType() . '.php';
         // 仅测试用
-        if ($this->files->exists($path)) {
-            $this->files->delete($path);
-        }
+        // if ($this->files->exists($path)) {
+        //     $this->files->delete($path);
+        // }
         if (!$this->files->exists($path)) {
             $this->files->put($path, $renderStub);
             $filename = substr(strrchr($path, "/"), 1);
