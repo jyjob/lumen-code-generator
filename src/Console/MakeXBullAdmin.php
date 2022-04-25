@@ -65,7 +65,7 @@ class MakeXBullAdmin extends GeneratorCommand
     {
         $this->params->setName(ucfirst($this->argument('name')));
         if (empty($this->params->getName())) {
-            $this->setName($this->ask('请输入Name，例如：Help'));
+            $this->params->setName($this->ask('请输入Name，例如：Help'));
         }
 
         $this->params->setNamespace(ucfirst($this->option('namespace')));
