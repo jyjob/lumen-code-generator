@@ -21,7 +21,6 @@ class MakeXBullAdmin extends GeneratorCommand
      * @var string
      */
     protected $signature = 'make:xbull_admin {name?} {--namespace=} {--table=} {--name_text=} {--fillable=} {--author=}';
-    // protected $signature = 'make:xbull_admin {name?} {--namespace=Goods} {--table=xb_goods_category} {--name_text=商品分类} {--fillable=n} {--author=wlh}';
 
     /**
      * 控制台命令说明。
