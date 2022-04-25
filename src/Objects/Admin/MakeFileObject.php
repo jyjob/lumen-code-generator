@@ -21,6 +21,7 @@ class MakeFileObject
     protected $makeFileType;
     protected $spaceName;
     protected $fileName;
+    protected $spacePath;
 
     /**
      * MakeFileObject constructor.
@@ -203,7 +204,7 @@ class MakeFileObject
                 $this->setSpaceName('App\Transform');
                 break;
         }
-        $this->setSpaceName($this->spaceName . '\\' . $this->getFileName());
+        $this->setSpaceName($this->spaceName . '\\' . $this->getSpacePath());
         return $this->spaceName;
     }
 
@@ -232,6 +233,22 @@ class MakeFileObject
     }
 
     /**
+     * @return mixed
+     */
+    public function getSpacePath()
+    {
+        return $this->spacePath;
+    }
+
+    /**
+     * @param mixed $spacePath
+     */
+    public function setSpacePath($spacePath)
+    {
+        $this->spacePath = $spacePath;
+    }
+
+    /**
      * 生成文件
      * Create on 2022/4/24
      * Create by jyjob
@@ -245,9 +262,12 @@ class MakeFileObject
 
         $path = $this->getMakeFilesPath();
         if ($name_count > 0) {
+            $space_arr = [];
             for ($i = 0; $i < $name_count; $i++) {
                 $path .= DIRECTORY_SEPARATOR . ucfirst($name_arr[$i]);
+                $space_arr [] = ucfirst($name_arr[$i]);
             }
+            $this->setSpacePath(implode('\\', $space_arr));
         }
         $this->setFileName(ucfirst($this->inputParams->getName()));
 
@@ -258,7 +278,7 @@ class MakeFileObject
         $stub = $this->files->get($this->getStub());
         $templateData = [
             'name' => $this->inputParams->getName(),
-            'lower_name' =>strtolower($this->inputParams->getName()),
+            'lower_name' => strtolower($this->inputParams->getName()),
             'desc' => $this->inputParams->getNameText(),
             'author' => $this->inputParams->getAuthor(),
             'tb_name' => $this->inputParams->getTable(),
@@ -266,14 +286,15 @@ class MakeFileObject
             'date' => date('Y-m-d'),
             'time' => date('H:i'),
             'space' => $this->getSpaceName(),
+            'sp_path' => $this->getSpacePath(),
         ];
 
         $renderStub = $this->getRenderStub($templateData, $stub);
         $path .= DIRECTORY_SEPARATOR . $this->getFileName() . $this->getMakeFileType() . '.php';
         // 仅测试用
-        // if ($this->files->exists($path)) {
-        //     $this->files->delete($path);
-        // }
+        if ($this->files->exists($path)) {
+            $this->files->delete($path);
+        }
         if (!$this->files->exists($path)) {
             $this->files->put($path, $renderStub);
             $filename = substr(strrchr($path, "/"), 1);

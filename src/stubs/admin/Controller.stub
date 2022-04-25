@@ -9,13 +9,13 @@ namespace $space;
 
 
 use App\Http\Controllers\BaseController;
-use App\Http\RequestBo\$name\$nameAddRequestBo;
-use App\Http\RequestBo\$name\$nameDelRequestBo;
-use App\Http\RequestBo\$name\$nameGetPageListRequestBo;
-use App\Http\RequestBo\$name\$nameGetRequestBo;
-use App\Services\$name\$nameService;
-use App\Transform\$name\$nameGetPageListTransform;
-use App\Transform\$name\$nameGetTransform;
+use App\Http\RequestBo\$sp_path\$nameAddRequestBo;
+use App\Http\RequestBo\$sp_path\$nameDelRequestBo;
+use App\Http\RequestBo\$sp_path\$nameGetPageListRequestBo;
+use App\Http\RequestBo\$sp_path\$nameGetRequestBo;
+use App\Services\$sp_path\$nameService;
+use App\Transform\$sp_path\$nameGetPageListTransform;
+use App\Transform\$sp_path\$nameGetTransform;
 
 class $nameController extends BaseController
 {

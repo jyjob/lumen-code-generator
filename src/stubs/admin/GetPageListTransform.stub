@@ -7,8 +7,8 @@
 
 namespace $space;
 
-use App\Http\RequestBo\$name\$nameGetPageListRequestBo;
-use App\Repositories\$name\$nameRepository;
+use App\Http\RequestBo\$sp_path\$nameGetPageListRequestBo;
+use App\Repositories\$sp_path\$nameRepository;
 use App\Services\SchoolStructureService;
 
 class $nameGetPageListTransform

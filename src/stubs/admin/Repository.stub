@@ -8,7 +8,7 @@
 namespace $space;
 
 
-use App\Models\$end_name\$end_nameModel;
+use App\Models\$sp_path\$end_nameModel;
 use xbull\lumen\struct\Repository\BaseRepository;
 
 class $nameRepository extends BaseRepository

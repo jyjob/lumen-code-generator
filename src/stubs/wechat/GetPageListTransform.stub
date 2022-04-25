@@ -7,7 +7,7 @@
 
 namespace $space;
 
-use App\Http\BO\$name\$nameGetPageListRequestBo;
+use App\Http\BO\$sp_path\$nameGetPageListRequestBo;
 
 class $nameGetPageListTransform
 {

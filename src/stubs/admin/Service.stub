@@ -9,10 +9,10 @@ namespace $space;
 
 
 use App\Helpers\PageHelper;
-use App\Http\RequestBo\$name\$nameAddRequestBo;
-use App\Http\RequestBo\$name\$nameGetPageListRequestBo;
-use App\Http\RequestBo\$name\$nameDelRequestBo;
-use App\Repositories\$name\$nameRepository;
+use App\Http\RequestBo\$sp_path\$nameAddRequestBo;
+use App\Http\RequestBo\$sp_path\$nameGetPageListRequestBo;
+use App\Http\RequestBo\$sp_path\$nameDelRequestBo;
+use App\Repositories\$sp_path\$nameRepository;
 use App\Services\SchoolStructureService;
 use Illuminate\Support\Facades\DB;
 use xbull\lumen\struct\Exceptions\BusinessException;

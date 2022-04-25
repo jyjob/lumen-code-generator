@@ -8,7 +8,7 @@
 namespace $space;
 
 
-use App\Modular\$name\$nameModular;
+use App\Modular\$sp_path\$nameModular;
 
 class $nameService
 {

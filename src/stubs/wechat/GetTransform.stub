@@ -7,7 +7,7 @@
 
 namespace $space;
 
-use App\Http\BO\$name\$nameGetRequestBo;
+use App\Http\BO\$sp_path\$nameGetRequestBo;
 
 class $nameGetTransform
 {
