@@ -7,12 +7,12 @@ lumen代码生成，目前仅支持特定项目生成，内部使用
 
 composer安装
 ``` bash
-$ composer require jiyongwang/lumen-code-generator
+$ composer require jyjob/lumen-code-generator
 ```
 
 在app.php添加服务提供者
 ```php
-$app->register(jiyongwang\LumenCodeGenerator\Providers\LumenCodeGeneratorProvider::class);
+$app->register(jyjob\LumenCodeGenerator\Providers\LumenCodeGeneratorProvider::class);
 ```
 
 #### 使用说明

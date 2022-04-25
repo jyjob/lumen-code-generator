@@ -2,14 +2,14 @@
 /**
  * 生成文件对象
  * Create on 2022/4/24
- * Create by jiyongwang
+ * Create by jyjob
  */
 
-namespace jiyongwang\LumenCodeGenerator\Objects;
+namespace jyjob\LumenCodeGenerator\Objects;
 
 
 use Illuminate\Filesystem\Filesystem;
-use jiyongwang\LumenCodeGenerator\Vo\PathVo;
+use jyjob\LumenCodeGenerator\Vo\PathVo;
 
 class MakeFileObject
 {
@@ -233,7 +233,7 @@ class MakeFileObject
     /**
      * 生成文件
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      * @return bool
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
@@ -286,7 +286,7 @@ class MakeFileObject
     /**
      * 替换模板变量
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      * @param $templateData
      * @param $stub
      * @return string|string[]
@@ -303,7 +303,7 @@ class MakeFileObject
     /**
      * 获取模板文件
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      * @return string
      */
     protected function getStub()

@@ -2,10 +2,10 @@
 /**
  * 命令收入对象
  * Create on 2022/4/24
- * Create by jiyongwang
+ * Create by jyjob
  */
 
-namespace jiyongwang\LumenCodeGenerator\Objects;
+namespace jyjob\LumenCodeGenerator\Objects;
 
 class InputParamObject
 {

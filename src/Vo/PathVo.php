@@ -2,10 +2,10 @@
 /**
  * 路径常量
  * Create on 2022/4/24
- * Create by jiyongwang
+ * Create by jyjob
  */
 
-namespace jiyongwang\LumenCodeGenerator\Vo;
+namespace jyjob\LumenCodeGenerator\Vo;
 
 
 use Illuminate\Support\Facades\App;

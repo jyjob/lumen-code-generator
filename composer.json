@@ -1,5 +1,5 @@
 {
-  "name": "jiyongwang/lumen-code-generator",
+  "name": "jyjob/lumen-code-generator",
   "description": "一个lumen代码生成包",
   "require": {
     "keepondream/service": "^1.1"
@@ -12,14 +12,14 @@
   },
   "authors": [
     {
-      "name": "jiyongwang",
+      "name": "jyjob",
       "email": "373275156@qq.com"
     }
   ],
   "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
-      "jiyongwang\\LumenCodeGenerator\\": "src/"
+      "jyjob\\LumenCodeGenerator\\": "src/"
     }
   }
 }

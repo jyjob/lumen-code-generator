@@ -5,14 +5,14 @@
  * Create by Abc
  */
 
-namespace jiyongwang\LumenCodeGenerator\Console;
+namespace jyjob\LumenCodeGenerator\Console;
 
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Filesystem\Filesystem;
-use jiyongwang\LumenCodeGenerator\Objects\InputParamObject;
-use jiyongwang\LumenCodeGenerator\Objects\MakeFileObject;
-use jiyongwang\LumenCodeGenerator\Vo\PathVo;
+use jyjob\LumenCodeGenerator\Objects\InputParamObject;
+use jyjob\LumenCodeGenerator\Objects\MakeFileObject;
+use jyjob\LumenCodeGenerator\Vo\PathVo;
 
 class MakeXBullAdmin extends GeneratorCommand
 {
@@ -48,7 +48,7 @@ class MakeXBullAdmin extends GeneratorCommand
     /**
      * 命令入口
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      * @return bool|void|null
      */
     public function handle()
@@ -59,7 +59,7 @@ class MakeXBullAdmin extends GeneratorCommand
     /**
      * 执行方法
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      */
     public function fire()
     {
@@ -116,7 +116,7 @@ class MakeXBullAdmin extends GeneratorCommand
     /**
      * 生成表模型
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      * @return bool
      */
     public function makeModel()
@@ -127,7 +127,7 @@ class MakeXBullAdmin extends GeneratorCommand
     /**
      * 生成数据访问层
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      * @return bool
      */
     public function makeRepository()
@@ -138,7 +138,7 @@ class MakeXBullAdmin extends GeneratorCommand
     /**
      * 生成服务层
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      * @return bool
      */
     public function makeService()
@@ -149,7 +149,7 @@ class MakeXBullAdmin extends GeneratorCommand
     /**
      * 生成控制器
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      * @return bool
      */
     public function makeController()
@@ -160,7 +160,7 @@ class MakeXBullAdmin extends GeneratorCommand
     /**
      * 生成表单验证
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      */
     public function makeRequestVo()
     {
@@ -173,7 +173,7 @@ class MakeXBullAdmin extends GeneratorCommand
     /**
      * 生成数据传输层
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      */
     public function makeTransform()
     {
@@ -184,7 +184,7 @@ class MakeXBullAdmin extends GeneratorCommand
     /**
      * 重写
      * Create on 2022/4/24
-     * Create by jiyongwang
+     * Create by jyjob
      * @return string
      */
     protected function getStub()
