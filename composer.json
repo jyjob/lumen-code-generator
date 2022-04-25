@@ -1,0 +1,25 @@
+{
+  "name": "jiyongwang/lumen-code-generator",
+  "description": "一个lumen代码生成包",
+  "require": {
+    "keepondream/service": "^1.1"
+  },
+  "license": "MIT",
+  "require-dev": {
+    "illuminate/console": ">=5.7",
+    "illuminate/support": ">=5.7",
+    "illuminate/filesystem": ">=5.7"
+  },
+  "authors": [
+    {
+      "name": "jiyongwang",
+      "email": "373275156@qq.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "jiyongwang\\LumenCodeGenerator\\": "src/"
+    }
+  }
+}

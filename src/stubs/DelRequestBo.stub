@@ -1,0 +1,31 @@
+<?php
+/**
+ * 删除$desc-表单验证
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+
+use xbull\lumen\struct\Bo\BaseRequestBo;
+
+class $nameDelRequestBo extends BaseRequestBo
+{
+    /** @var int id */
+    public $id;
+
+    public function rules()
+    {
+        return [
+            'id' => ['required'],
+        ];
+    }
+
+    protected function messages()
+    {
+        return [
+            'id.required' => 'id不能为空',
+        ];
+    }
+}

@@ -1,0 +1,20 @@
+<?php
+/**
+ * $desc-表模型
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+
+use App\Models\Common\AdminModel;
+
+class $nameModel extends AdminModel
+{
+    protected $table = '$tb_name';
+}
+
+
+
+

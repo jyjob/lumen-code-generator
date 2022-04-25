@@ -1,0 +1,39 @@
+<?php
+/**
+ * $desc分页列表-数据传输层
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+use App\Http\RequestBo\$name\$nameGetPageListRequestBo;
+use App\Repositories\$name\$nameRepository;
+use App\Services\SchoolStructureService;
+
+class $nameGetPageListTransform
+{
+    public function get$nameRepository()
+    {
+        return (new $nameRepository(app()));
+    }
+
+    public function getSchoolStructureService()
+    {
+        return (new SchoolStructureService());
+    }
+
+    /**
+     * 数据传输
+     * Create on $date $time
+     * Create by $author
+     * @param $data
+     * @param $nameGetPageListRequestBo $bo
+     * @return mixed
+     */
+    public function transform($data, $nameGetPageListRequestBo $bo)
+    {
+        return $data;
+
+    }
+}

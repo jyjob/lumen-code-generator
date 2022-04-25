@@ -1,0 +1,88 @@
+<?php
+/**
+ * $desc-控制器
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+
+use App\Http\Controllers\BaseController;
+use App\Http\RequestBo\$name\$nameAddRequestBo;
+use App\Http\RequestBo\$name\$nameDelRequestBo;
+use App\Http\RequestBo\$name\$nameGetPageListRequestBo;
+use App\Http\RequestBo\$name\$nameGetRequestBo;
+use App\Services\$name\$nameService;
+use App\Transform\$name\$nameGetPageListTransform;
+use App\Transform\$name\$nameGetTransform;
+
+class $nameController extends BaseController
+{
+    private $helpService;
+
+    public function __construct($nameService $helpService)
+    {
+        $this->helpService = $helpService;
+    }
+
+    /**
+     * 创建$desc
+     * Create on $date $time
+     * Create by $author
+     * @param $nameAddRequestBo $bo
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \ReflectionException
+     * @throws \xbull\lumen\struct\Repository\RepositoryException
+     */
+    public function add$name($nameAddRequestBo $bo)
+    {
+        $result = $this->helpService->add$name($bo);
+        return ok($result);
+    }
+
+    /**
+     * $desc详情
+     * Create on $date $time
+     * Create by $author
+     * @param $nameGetRequestBo $bo
+     * @param $nameGetTransform $transform
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \xbull\lumen\struct\Exceptions\BusinessException
+     */
+    public function get$name($nameGetRequestBo $bo, $nameGetTransform $transform)
+    {
+        $result = $this->helpService->get$name($bo->id);
+        $result = $transform->transform($result, $bo);
+        return ok($result);
+    }
+
+    /**
+     * $desc分页列表
+     * Create on $date $time
+     * Create by $author
+     * @param $nameGetPageListRequestBo $bo
+     * @param $nameGetPageListTransform $transform
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function get$namePageList($nameGetPageListRequestBo $bo,  $nameGetPageListTransform $transform)
+    {
+        $result = $this->helpService->get$namePageList($bo);
+        $result = $transform->transform($result, $bo);
+        return ok($result);
+    }
+
+    /**
+     * 删除$desc
+     * Create on $date $time
+     * Create by $author
+     * @param $nameDelRequestBo $bo
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \xbull\lumen\struct\Exceptions\BusinessException
+     */
+    public function del$name($nameDelRequestBo $bo)
+    {
+        $this->helpService->del$name($bo);
+        return ok();
+    }
+}

@@ -1,0 +1,101 @@
+<?php
+/**
+ * $desc-服务层
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+
+use App\Helpers\PageHelper;
+use App\Http\RequestBo\$name\$nameAddRequestBo;
+use App\Http\RequestBo\$name\$nameGetPageListRequestBo;
+use App\Http\RequestBo\$name\$nameDelRequestBo;
+use App\Repositories\$name\$nameRepository;
+use App\Services\SchoolStructureService;
+use Illuminate\Support\Facades\DB;
+use xbull\lumen\struct\Exceptions\BusinessException;
+
+class $nameService
+{
+    public function get$nameRepository()
+    {
+        return (new $nameRepository(app()));
+    }
+
+    public function getSchoolStructureService()
+    {
+        return (new SchoolStructureService());
+    }
+
+    /**
+     * 创建$desc
+     * Create on $date $time
+     * Create by $author
+     * @param $nameAddRequestBo $bo
+     * @return \Illuminate\Database\Eloquent\HigherOrderBuilderProxy|int|mixed
+     * @throws \ReflectionException
+     * @throws \xbull\lumen\struct\Repository\RepositoryException
+     */
+    public function add$name($nameAddRequestBo $bo)
+    {
+        $params = $bo->getAttributes();
+        $params = array_filter($params);
+
+        return DB::transaction(function () use ($params, $bo) {
+            $insert_id = $this->get$nameRepository()->create($params);
+            if ($insert_id > 0) {
+                $bo->id = $insert_id;
+            }
+            return $insert_id;
+        });
+    }
+
+    /**
+     * $desc详情
+     * Create on $date $time
+     * Create by $author
+     * @param int $id
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Query\Builder|mixed|object|null
+     * @throws BusinessException
+     */
+    public function get$name(int $id)
+    {
+        $result = $this->get$nameRepository()->findById($id);
+        throw_business_empty($result, "$desc不存在或已被删除");
+        return $result;
+    }
+
+    /**
+     * 删除$desc
+     * Create on $date $time
+     * Create by $author
+     * @param $nameDelRequestBo $bo
+     * @throws BusinessException
+     */
+    public function del$name($nameDelRequestBo $bo)
+    {
+        $info = $this->get$name($bo->id);
+        throw_business_empty($info, '$desc不存在或已被删除');
+
+        $result = $this->get$nameRepository()->delete($bo->id);
+        throw_business_on(!$result, "删除失败");
+    }
+
+    /**
+     * $desc分页列表
+     * Create on $date $time
+     * Create by $author
+     * @param $nameGetPageListRequestBo $bo
+     * @return array
+     */
+    public function get$namePageList($nameGetPageListRequestBo $bo)
+    {
+        $result = $this->get$nameRepository()->getPageList(
+            [],
+            $bo->page_size
+        );
+        return PageHelper::getData($result);
+    }
+}

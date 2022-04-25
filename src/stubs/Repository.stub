@@ -1,0 +1,139 @@
+<?php
+/**
+ * $desc-数据访问层
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+
+use App\Models\$end_name\$end_nameModel;
+use xbull\lumen\struct\Repository\BaseRepository;
+
+class $nameRepository extends BaseRepository
+{
+    public function model()
+    {
+        return $end_nameModel::class;
+    }
+
+    /**
+     * 创建
+     * Create on $date $time
+     * Create by $author
+     * @param array $data
+     * @return \Illuminate\Database\Eloquent\HigherOrderBuilderProxy|int|mixed
+     * @throws \xbull\lumen\struct\Repository\RepositoryException
+     */
+    public function create(array $data)
+    {
+        $result = $end_nameModel::query()->create($data);
+        $insert_id = $result->id ?? 0;
+
+        return $insert_id;
+    }
+
+    /**
+     * 修改
+     * Create on $date $time
+     * Create by $author
+     * @param array $data
+     * @param $id
+     * @return int|mixed
+     */
+    public function update(array $data, $id)
+    {
+        return $end_nameModel::query()->where('id', '=', $id)->update($data);
+    }
+
+    /**
+     * 根据条件修改
+     * Create on $date $time
+     * Create by $author
+     * @param array $data
+     * @param $where
+     * @return int
+     */
+    public function updateByWhere(array $data, $where)
+    {
+        return $end_nameModel::query()->where($where)->update($data);
+    }
+
+    /**
+     * 删除
+     * Create on $date $time
+     * Create by $author
+     * @param $id
+     * @return int|mixed
+     */
+    public function delete($id)
+    {
+        return $end_nameModel::query()->where('id', $id)->delete();
+    }
+
+    /**
+     * 查询单条
+     * Create on $date $time
+     * Create by $author
+     * @param $id
+     * @param string[] $columns
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Query\Builder|mixed|object|null
+     */
+    public function findById($id, $columns = ['*'])
+    {
+        return $end_nameModel::query()
+            ->where('id', $id)
+            ->select($columns)
+            ->first();
+    }
+
+    /**
+     * 根据条件查询单条
+     * Create on $date $time
+     * Create by $author
+     * @param $condition
+     * @param string[] $columns
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Query\Builder|object|null
+     */
+    public function findByWhere($condition, $columns = ['*'])
+    {
+        return $end_nameModel::query()
+            ->where($condition)
+            ->select($columns)
+            ->first();
+    }
+
+    /**
+     * 查询单条（包含软删除数据）
+     * Create on $date $time
+     * Create by $author
+     * @param $condition
+     * @param string[] $columns
+     * @return mixed
+     */
+    public function findWithTrashedByWhere($condition, $columns = ['*'])
+    {
+        return $end_nameModel::withTrashed()
+            ->where($condition)
+            ->select($columns)
+            ->first();
+    }
+
+    /**
+     * 分页列表
+     * Create on $date $time
+     * Create by $author
+     * @param $condition
+     * @param string[] $columns
+     * @param int $page_size
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function getPageList($condition, $columns = ['*'], $page_size = 10)
+    {
+        return $end_nameModel::query()
+            ->where($condition)
+            ->select($columns)
+            ->paginate($page_size);
+    }
+}
