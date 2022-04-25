@@ -85,7 +85,7 @@ class MakeXBullAdmin extends GeneratorCommand
 
         $this->params->setFillAble($this->option('fillable'));
         if (empty($this->params->getFillAble())) {
-            $this->params->setFillAble($this->ask('请输入需要生成的代码层级：1.model 2.repository 3.service 4.controller 5.request_vo 6.transform' . PHP_EOL
+            $this->params->setFillAble($this->ask('请输入需要生成的代码层级：1.controller 2.request_vo 3.transform 4.service 5.repository 6.model' . PHP_EOL
                 . '数字以逗号隔开,输入n代表都需要，可选，默认为n'));
         }
 
@@ -102,17 +102,17 @@ class MakeXBullAdmin extends GeneratorCommand
 
         $fillArr = explode(',', $this->params->getFillAble());
 
-        in_array("1", $fillArr) && $this->makeModel();
+        in_array("1", $fillArr) && $this->makeController();
 
-        in_array("2", $fillArr) && $this->makeRepository();
+        in_array("2", $fillArr) && $this->makeRequestVo();
 
-        in_array("3", $fillArr) && $this->makeService();
+        in_array("3", $fillArr) && $this->makeTransform();
 
-        in_array("4", $fillArr) && $this->makeController();
+        in_array("4", $fillArr) && $this->makeService();
 
-        in_array("5", $fillArr) && $this->makeRequestVo();
+        in_array("5", $fillArr) && $this->makeRepository();
 
-        in_array("6", $fillArr) && $this->makeTransform();
+        in_array("6", $fillArr) && $this->makeModel();
     }
 
     /**

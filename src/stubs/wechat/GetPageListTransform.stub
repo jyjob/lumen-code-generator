@@ -1,0 +1,27 @@
+<?php
+/**
+ * $desc分页列表-数据传输层
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+use App\Http\BO\$name\$nameGetPageListRequestBo;
+
+class $nameGetPageListTransform
+{
+    /**
+     * 数据传输
+     * Create on $date $time
+     * Create by $author
+     * @param $data
+     * @param $nameGetPageListRequestBo $bo
+     * @return mixed
+     */
+    public function transform($data, $nameGetPageListRequestBo $bo)
+    {
+        return $data;
+
+    }
+}

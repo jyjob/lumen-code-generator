@@ -1,6 +1,6 @@
 <?php
 /**
- * admin-代码生成命令
+ * wechat-代码生成命令
  * Create on 2022-04-24 17:41
  * Create by Abc
  */
@@ -11,8 +11,8 @@ namespace jyjob\LumenCodeGenerator\Console;
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Filesystem\Filesystem;
 use jyjob\LumenCodeGenerator\Objects\InputParamObject;
-use jyjob\LumenCodeGenerator\Objects\Admin\MakeFileObject;
-use jyjob\LumenCodeGenerator\Vo\Admin\PathVo;
+use jyjob\LumenCodeGenerator\Objects\Wechat\MakeFileObject;
+use jyjob\LumenCodeGenerator\Vo\Wechat\PathVo;
 
 class MakeXBullWechat extends GeneratorCommand
 {
@@ -20,13 +20,14 @@ class MakeXBullWechat extends GeneratorCommand
      * 控制台命令 signature 的名称。
      * @var string
      */
-    protected $signature = 'make:xbull_admin {name?} {--namespace=} {--table=} {--name_text=} {--fillable=} {--author=}';
+    // protected $signature = 'make:xbull_wechat {name?} {--namespace=} {--table=} {--name_text=} {--fillable=} {--author=}';
+    protected $signature = 'make:xbull_wechat {name?} {--namespace=Goods} {--table=xb_goods} {--name_text=商品} {--fillable=n} {--author=wlh}';
 
     /**
      * 控制台命令说明。
      * @var string
      */
-    protected $description = 'xbull-admin代码生成器';
+    protected $description = 'xbull-wechat代码生成器';
 
     /** @var InputParamObject */
     protected $params;
@@ -35,7 +36,7 @@ class MakeXBullWechat extends GeneratorCommand
     protected $makeFile;
 
     /**
-     * MakeXBullAdmin constructor.
+     * MakeXBullWechat constructor.
      * @param Filesystem $files
      */
     public function __construct(Filesystem $files)
@@ -85,34 +86,25 @@ class MakeXBullWechat extends GeneratorCommand
 
         $this->params->setFillAble($this->option('fillable'));
         if (empty($this->params->getFillAble())) {
-            $this->params->setFillAble($this->ask('请输入需要生成的代码层级：1.model 2.repository 3.service 4.controller 5.request_vo 6.transform' . PHP_EOL
+            $this->params->setFillAble($this->ask('请输入需要生成的代码层级：1.controller 2.request_vo 3.transform 4.service 5.modular' . PHP_EOL
                 . '数字以逗号隔开,输入n代表都需要，可选，默认为n'));
         }
 
-        if ($this->params->getFillAble() == 'n' || $this->params->getFillAble() == '1') {
-            $this->params->setTable($this->option('table'));
-            while (empty($this->params->getTable())) {
-                $this->params->setTable($this->ask('请输入对应的数据库表表名，例如：xb_help，需要表前缀，必填'));
-            }
-        }
-
         if ($this->params->getFillAble() == 'n' || empty($this->params->getFillAble())) {
-            $this->params->setFillAble('1,2,3,4,5,6');
+            $this->params->setFillAble('1,2,3,4,5');
         }
 
         $fillArr = explode(',', $this->params->getFillAble());
 
-        in_array("1", $fillArr) && $this->makeModel();
+        in_array("1", $fillArr) && $this->makeController();
 
-        in_array("2", $fillArr) && $this->makeRepository();
+        in_array("2", $fillArr) && $this->makeRequestVo();
 
-        in_array("3", $fillArr) && $this->makeService();
+        in_array("3", $fillArr) && $this->makeTransform();
 
-        in_array("4", $fillArr) && $this->makeController();
+        in_array("4", $fillArr) && $this->makeService();
 
-        in_array("5", $fillArr) && $this->makeRequestVo();
-
-        in_array("6", $fillArr) && $this->makeTransform();
+        in_array("5", $fillArr) && $this->makeModular();
     }
 
     /**
@@ -183,6 +175,17 @@ class MakeXBullWechat extends GeneratorCommand
     {
         $this->makeFile->setMakeFileType(PathVo::MAKE_TRANSFORM_GET)->makeFile();
         $this->makeFile->setMakeFileType(PathVo::MAKE_TRANSFORM_GET_PAGE_LIST)->makeFile();
+    }
+
+    /**
+     * 生成后台接口
+     * Create on 2022/4/24
+     * Create by jyjob
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     */
+    public function makeModular()
+    {
+        $this->makeFile->setMakeFileType(PathVo::MAKE_MODULAR)->makeFile();
     }
 
     /**

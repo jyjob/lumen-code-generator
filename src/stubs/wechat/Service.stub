@@ -1,0 +1,82 @@
+<?php
+/**
+ * $desc-服务层
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+
+use App\Modular\$name\$nameModular;
+
+class $nameService
+{
+    /**
+     * 创建$desc
+     * Create on $date $time
+     * Create by $author
+     * @param $params
+     * @return array
+     */
+    public function add$name($params)
+    {
+        $response = $nameModular::add$name($params);
+        if (is_no($response)) {
+            return no(no_msg($response), no_code($response));
+        } else {
+            return yes(yes_data($response));
+        }
+    }
+
+    /**
+     * $desc详情
+     * Create on $date $time
+     * Create by $author
+     * @param $params
+     * @return array
+     */
+    public function get$name($params)
+    {
+        $response = $nameModular::get$name($params);
+        if (is_no($response)) {
+            return no(no_msg($response), no_code($response));
+        } else {
+            return yes(yes_data($response));
+        }
+    }
+
+    /**
+     * 删除$desc
+     * Create on $date $time
+     * Create by $author
+     * @param $params
+     * @return array
+     */
+    public function del$name($params)
+    {
+        $response = $nameModular::del$name($params);
+        if (is_no($response)) {
+            return no(no_msg($response), no_code($response));
+        } else {
+            return yes(yes_data($response));
+        }
+    }
+
+    /**
+     * $desc分页列表
+     * Create on $date $time
+     * Create by $author
+     * @param $params
+     * @return array
+     */
+    public function get$namePageList($params)
+    {
+        $response = $nameModular::get$namePageList($params);
+        if (is_no($response)) {
+            return no(no_msg($response), no_code($response));
+        } else {
+            return yes(yes_data($response));
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<?php
+/**
+ * $desc详情-数据传输层
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+use App\Http\BO\$name\$nameGetRequestBo;
+
+class $nameGetTransform
+{
+    /**
+     * 数据传输
+     * Create on $date $time
+     * Create by $author
+     * @param $data
+     * @param $nameGetRequestBo $bo
+     * @return mixed
+     */
+    public function transform($data, $nameGetRequestBo $bo)
+    {
+        return $data;
+
+    }
+}

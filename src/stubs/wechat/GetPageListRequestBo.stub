@@ -1,0 +1,36 @@
+<?php
+/**
+ * $desc分页列表-表单验证
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+
+use xbull\lumen\struct\Bo\BaseRequestBo;
+
+class $nameGetPageListRequestBo extends BaseRequestBo
+{
+    /** @var int 第几页 */
+    public $page = 1;
+
+    /** @var int 页大小 */
+    public $page_size = 10;
+
+    public function rules()
+    {
+        return [
+            'page' => ['required'],
+            'page_size' => ['required'],
+        ];
+    }
+
+    protected function messages()
+    {
+        return [
+            'page.required' => '页码不能为空',
+            'page_size.required' => '页大小不能为空',
+        ];
+    }
+}

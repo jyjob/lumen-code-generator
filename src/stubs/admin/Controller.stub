@@ -19,11 +19,11 @@ use App\Transform\$name\$nameGetTransform;
 
 class $nameController extends BaseController
 {
-    private $helpService;
+    private $$lower_nameService;
 
-    public function __construct($nameService $helpService)
+    public function __construct($nameService $$lower_nameService)
     {
-        $this->helpService = $helpService;
+        $this->$lower_nameService = $$lower_nameService;
     }
 
     /**
@@ -37,7 +37,7 @@ class $nameController extends BaseController
      */
     public function add$name($nameAddRequestBo $bo)
     {
-        $result = $this->helpService->add$name($bo);
+        $result = $this->$lower_nameService->add$name($bo);
         return ok($result);
     }
 
@@ -52,7 +52,7 @@ class $nameController extends BaseController
      */
     public function get$name($nameGetRequestBo $bo, $nameGetTransform $transform)
     {
-        $result = $this->helpService->get$name($bo->id);
+        $result = $this->$lower_nameService->get$name($bo->id);
         $result = $transform->transform($result, $bo);
         return ok($result);
     }
@@ -67,7 +67,7 @@ class $nameController extends BaseController
      */
     public function get$namePageList($nameGetPageListRequestBo $bo,  $nameGetPageListTransform $transform)
     {
-        $result = $this->helpService->get$namePageList($bo);
+        $result = $this->$lower_nameService->get$namePageList($bo);
         $result = $transform->transform($result, $bo);
         return ok($result);
     }
@@ -82,7 +82,7 @@ class $nameController extends BaseController
      */
     public function del$name($nameDelRequestBo $bo)
     {
-        $this->helpService->del$name($bo);
+        $this->$lower_nameService->del$name($bo);
         return ok();
     }
 }

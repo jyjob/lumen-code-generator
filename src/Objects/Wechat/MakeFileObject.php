@@ -5,12 +5,12 @@
  * Create by jyjob
  */
 
-namespace jyjob\LumenCodeGenerator\Objects\Admin;
+namespace jyjob\LumenCodeGenerator\Objects\Wechat;
 
 
 use Illuminate\Filesystem\Filesystem;
 use jyjob\LumenCodeGenerator\Objects\InputParamObject;
-use jyjob\LumenCodeGenerator\Vo\Admin\PathVo;
+use jyjob\LumenCodeGenerator\Vo\Wechat\PathVo;
 
 class MakeFileObject
 {
@@ -58,6 +58,9 @@ class MakeFileObject
         switch ($this->getMakeFileType()) {
             case PathVo::MAKE_SERVICE:
                 $this->setMakeFilesName(PathVo::MAKE_SERVICE);
+                break;
+            case PathVo::MAKE_MODULAR:
+                $this->setMakeFilesName(PathVo::MAKE_MODULAR);
                 break;
             case PathVo::MAKE_MODEL:
                 $this->setMakeFilesName(PathVo::MAKE_MODEL);
@@ -107,7 +110,10 @@ class MakeFileObject
     {
         switch ($this->getMakeFileType()) {
             case PathVo::MAKE_SERVICE:
-                $this->setMakeFilesPath(PathVo::ServicesPath());
+                $this->setMakeFilesPath(PathVo::ServicePath());
+                break;
+            case PathVo::MAKE_MODULAR:
+                $this->setMakeFilesPath(PathVo::ModularPath());
                 break;
             case PathVo::MAKE_MODEL:
                 $this->setMakeFilesPath(PathVo::ModelsPath());
@@ -181,7 +187,10 @@ class MakeFileObject
     {
         switch ($this->getMakeFileType()) {
             case PathVo::MAKE_SERVICE:
-                $this->setSpaceName('App\Services');
+                $this->setSpaceName('App\Service');
+                break;
+            case PathVo::MAKE_MODULAR:
+                $this->setSpaceName('App\Modular');
                 break;
             case PathVo::MAKE_MODEL:
                 $this->setSpaceName('App\Models');
@@ -196,11 +205,11 @@ class MakeFileObject
             case PathVo::MAKE_REQUEST_BO_GET:
             case PathVo::MAKE_REQUEST_BO_GET_PAGE_LIST:
             case PathVo::MAKE_REQUEST_BO_DEL:
-                $this->setSpaceName('App\Http\RequestBo');
+                $this->setSpaceName('App\Http\BO');
                 break;
             case PathVo::MAKE_TRANSFORM_GET:
             case PathVo::MAKE_TRANSFORM_GET_PAGE_LIST:
-                $this->setSpaceName('App\Transform');
+                $this->setSpaceName('App\Transformers');
                 break;
         }
         $this->setSpaceName($this->spaceName . '\\' . $this->getFileName());
@@ -311,7 +320,7 @@ class MakeFileObject
      */
     protected function getStub()
     {
-        $stubPath = dirname(dirname(__DIR__)) . "/stubs/admin/{$this->getMakeFilesName()}.stub";
+        $stubPath = dirname(dirname(__DIR__)) . "/stubs/wechat/{$this->getMakeFilesName()}.stub";
         return $stubPath;
     }
 

@@ -1,0 +1,104 @@
+<?php
+/**
+ * $desc-控制器
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+
+use App\Http\Controllers\$name\BaseController;
+use App\Http\BO\$name\$nameAddRequestBo;
+use App\Http\BO\$name\$nameDelRequestBo;
+use App\Http\BO\$name\$nameGetPageListRequestBo;
+use App\Http\BO\$name\$nameGetRequestBo;
+use App\Service\$name\$nameService;
+use App\Transformers\$name\$nameGetPageListTransform;
+use App\Transformers\$name\$nameGetTransform;
+
+class $nameController extends BaseController
+{
+    private $$lower_nameService;
+
+    public function __construct($nameService $$lower_nameService)
+    {
+        $this->$lower_nameService = $$lower_nameService;
+    }
+
+    /**
+     * 创建$desc
+     * Create on $date $time
+     * Create by $author
+     * @param $nameAddRequestBo $bo
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \ReflectionException
+     */
+    public function add$name($nameAddRequestBo $bo)
+    {
+        $params = array_filter($bo->getAttributes());
+        $result = $this->$lower_nameService->add$name($params);
+
+        if (is_no($result)) return fail(no_code($result), no_msg($result));
+
+        return ok(yes_data($result));
+    }
+
+    /**
+     * $desc详情
+     * Create on $date $time
+     * Create by $author
+     * @param $nameGetRequestBo $bo
+     * @param $nameGetTransform $transform
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \ReflectionException
+     */
+    public function get$name($nameGetRequestBo $bo, $nameGetTransform $transform)
+    {
+        $params = array_filter($bo->getAttributes());
+        $result = $this->$lower_nameService->get$name($params);
+        $result = $transform->transform($result, $bo);
+
+        if (is_no($result)) return fail(no_code($result), no_msg($result));
+
+        return ok(yes_data($result));
+    }
+
+    /**
+     * $desc分页列表
+     * Create on $date $time
+     * Create by $author
+     * @param $nameGetPageListRequestBo $bo
+     * @param $nameGetPageListTransform $transform
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \ReflectionException
+     */
+    public function get$namePageList($nameGetPageListRequestBo $bo, $nameGetPageListTransform $transform)
+    {
+        $params = array_filter($bo->getAttributes());
+        $result = $this->$lower_nameService->get$namePageList($params);
+        $result = $transform->transform($result, $bo);
+
+        if (is_no($result)) return fail(no_code($result), no_msg($result));
+
+        return ok(yes_data($result));
+    }
+
+    /**
+     * 删除$desc
+     * Create on $date $time
+     * Create by $author
+     * @param $nameDelRequestBo $bo
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \ReflectionException
+     */
+    public function del$name($nameDelRequestBo $bo)
+    {
+        $params = array_filter($bo->getAttributes());
+        $result = $this->$lower_nameService->del$name($params);
+
+        if (is_no($result)) return fail(no_code($result), no_msg($result));
+
+        return ok(yes_data($result));
+    }
+}

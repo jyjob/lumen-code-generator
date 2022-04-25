@@ -1,0 +1,66 @@
+<?php
+/**
+ * $desc-后台接口
+ * Create on $date $time
+ * Create by $author
+ */
+
+namespace $space;
+
+
+use App\Modular\BaseModula;
+
+class $nameModular extends BaseModula
+{
+    /**
+     * 创建$desc
+     * Create on $date $time
+     * Create by $author
+     * @param $params
+     * @param $head
+     * @return array|bool|void
+     */
+    public static function add$name($params = [], $head = [])
+    {
+        return self::postRequestAdminApi('/$lower_name/add_$lower_name', $params, $head, false);
+    }
+
+    /**
+     * $desc详情
+     * Create on $date $time
+     * Create by $author
+     * @param $params
+     * @param $head
+     * @return array|bool|void
+     */
+    public static function get$name($params = [], $head = [])
+    {
+        return self::getRequestAdminApi('/$lower_name/get_$lower_name', $params, $head, false);
+    }
+
+    /**
+     * 删除$desc
+     * Create on $date $time
+     * Create by $author
+     * @param $params
+     * @param $head
+     * @return array|bool|void
+     */
+    public static function del$name($params = [], $head = [])
+    {
+        return self::getRequestAdminApi('/$lower_name/del_$lower_name', $params, $head, false);
+    }
+
+    /**
+     * $desc分页列表
+     * Create on $date $time
+     * Create by $author
+     * @param $params
+     * @param $head
+     * @return array|bool|void
+     */
+    public static function get$namePageList($params = [], $head = [])
+    {
+        return self::getRequestAdminApi('/$lower_name/get_$lower_name_page_list', $params, $head, false);
+    }
+}
