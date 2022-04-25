@@ -5,11 +5,12 @@
  * Create by jyjob
  */
 
-namespace jyjob\LumenCodeGenerator\Objects;
+namespace jyjob\LumenCodeGenerator\Objects\Admin;
 
 
 use Illuminate\Filesystem\Filesystem;
-use jyjob\LumenCodeGenerator\Vo\PathVo;
+use jyjob\LumenCodeGenerator\Objects\InputParamObject;
+use jyjob\LumenCodeGenerator\Vo\Admin\PathVo;
 
 class MakeFileObject
 {
@@ -265,7 +266,7 @@ class MakeFileObject
             'time' => date('H:i'),
             'space' => $this->getSpaceName(),
         ];
-        var_dump($templateData);
+
         $renderStub = $this->getRenderStub($templateData, $stub);
         $path .= DIRECTORY_SEPARATOR . $this->getFileName() . $this->getMakeFileType() . '.php';
         // 仅测试用
@@ -309,7 +310,7 @@ class MakeFileObject
      */
     protected function getStub()
     {
-        $stubPath = dirname(__DIR__) . "/stubs/{$this->getMakeFilesName()}.stub";
+        $stubPath = dirname(dirname(__DIR__)) . "/stubs/admin/{$this->getMakeFilesName()}.stub";
         return $stubPath;
     }
 

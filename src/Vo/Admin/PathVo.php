@@ -5,7 +5,7 @@
  * Create by jyjob
  */
 
-namespace jyjob\LumenCodeGenerator\Vo;
+namespace jyjob\LumenCodeGenerator\Vo\Admin;
 
 
 use Illuminate\Support\Facades\App;

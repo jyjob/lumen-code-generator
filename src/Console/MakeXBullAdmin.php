@@ -11,8 +11,8 @@ namespace jyjob\LumenCodeGenerator\Console;
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Filesystem\Filesystem;
 use jyjob\LumenCodeGenerator\Objects\InputParamObject;
-use jyjob\LumenCodeGenerator\Objects\MakeFileObject;
-use jyjob\LumenCodeGenerator\Vo\PathVo;
+use jyjob\LumenCodeGenerator\Objects\Admin\MakeFileObject;
+use jyjob\LumenCodeGenerator\Vo\Admin\PathVo;
 
 class MakeXBullAdmin extends GeneratorCommand
 {
