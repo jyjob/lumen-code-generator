@@ -39,9 +39,7 @@ class $nameController extends BaseController
         $params = array_filter($bo->getAttributes());
         $result = $this->$lower_nameService->add$name($params);
 
-        if (is_no($result)) return fail(no_code($result), no_msg($result));
-
-        return ok(yes_data($result));
+        return ok($result);
     }
 
     /**
@@ -59,9 +57,7 @@ class $nameController extends BaseController
         $result = $this->$lower_nameService->get$name($params);
         $result = $transform->transform($result, $bo);
 
-        if (is_no($result)) return fail(no_code($result), no_msg($result));
-
-        return ok(yes_data($result));
+        return ok($result);
     }
 
     /**
@@ -79,9 +75,7 @@ class $nameController extends BaseController
         $result = $this->$lower_nameService->get$namePageList($params);
         $result = $transform->transform($result, $bo);
 
-        if (is_no($result)) return fail(no_code($result), no_msg($result));
-
-        return ok(yes_data($result));
+        return ok($result);
     }
 
     /**
@@ -97,8 +91,6 @@ class $nameController extends BaseController
         $params = array_filter($bo->getAttributes());
         $result = $this->$lower_nameService->del$name($params);
 
-        if (is_no($result)) return fail(no_code($result), no_msg($result));
-
-        return ok(yes_data($result));
+        return ok($result);
     }
 }

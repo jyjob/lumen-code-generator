@@ -17,16 +17,14 @@ class $nameService
      * Create on $date $time
      * Create by $author
      * @param $params
-     * @return array
+     * @return array|mixed
      */
     public function add$name($params)
     {
         $response = $nameModular::add$name($params);
-        if (is_no($response)) {
-            return no(no_msg($response), no_code($response));
-        } else {
-            return yes(yes_data($response));
-        }
+        throw_on(is_no($response), no_msg($response), no_code($response));
+
+        return yes_data($response);
     }
 
     /**
@@ -34,16 +32,14 @@ class $nameService
      * Create on $date $time
      * Create by $author
      * @param $params
-     * @return array
+     * @return array|mixed
      */
     public function get$name($params)
     {
         $response = $nameModular::get$name($params);
-        if (is_no($response)) {
-            return no(no_msg($response), no_code($response));
-        } else {
-            return yes(yes_data($response));
-        }
+        throw_on(is_no($response), no_msg($response), no_code($response));
+
+        return yes_data($response);
     }
 
     /**
@@ -51,16 +47,14 @@ class $nameService
      * Create on $date $time
      * Create by $author
      * @param $params
-     * @return array
+     * @return array|mixed
      */
     public function del$name($params)
     {
         $response = $nameModular::del$name($params);
-        if (is_no($response)) {
-            return no(no_msg($response), no_code($response));
-        } else {
-            return yes(yes_data($response));
-        }
+        throw_on(is_no($response), no_msg($response), no_code($response));
+
+        return yes_data($response);
     }
 
     /**
@@ -68,15 +62,13 @@ class $nameService
      * Create on $date $time
      * Create by $author
      * @param $params
-     * @return array
+     * @return array|mixed
      */
     public function get$namePageList($params)
     {
         $response = $nameModular::get$namePageList($params);
-        if (is_no($response)) {
-            return no(no_msg($response), no_code($response));
-        } else {
-            return yes(yes_data($response));
-        }
+        throw_on(is_no($response), no_msg($response), no_code($response));
+
+        return yes_data($response);
     }
 }
